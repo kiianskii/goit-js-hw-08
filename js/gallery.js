@@ -65,7 +65,8 @@ const images = [
 ];
 
 const refs = {
-  container: document.querySelector(".gallery")
+  container: document.querySelector(".gallery"),
+  body: document.body,
 }
 
 
@@ -97,6 +98,7 @@ renderImg(images);
 
 function onContainerClick(e) {
   e.preventDefault()
+  refs.body.style.overflow = 'hidden';
   if (e.target === e.currentTarget) return;
 
   const instance = basicLightbox.create(`
@@ -110,6 +112,7 @@ function onContainerClick(e) {
   function EscClose(e) {
     if (e.code === 'Escape') {
       instance.close()
+      refs.body.style.overflow = 'visible';
     }
   }
 }
