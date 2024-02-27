@@ -106,7 +106,12 @@ function onContainerClick(e) {
 `)
 
   instance.show()
-  
+  document.addEventListener('keydown', EscClose)
+  function EscClose(e) {
+    if (e.key === 'Escape') {
+      instance.close()
+    }
+  }
 }
 
 
