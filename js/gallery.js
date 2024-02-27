@@ -108,11 +108,12 @@ function onContainerClick(e) {
 `)
 
   instance.show()
-  document.addEventListener('keydown', EscClose)
-  function EscClose(e) {
+  document.addEventListener('keydown', escClose)
+  function escClose(e) {
     if (e.code === 'Escape') {
       instance.close()
       refs.body.style.overflow = 'visible';
+      document.removeEventListener('keydown', escClose)
     }
   }
 }
